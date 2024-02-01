@@ -13,6 +13,7 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "9baade16-dead-4900-987e-cc50ae27275b",
 						"exec": [
 							"pm.test('Status code is 200 OK', function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -24,25 +25,26 @@
 							"   \r",
 							"    // `expected_number_of_users` is a global variable\r",
 							"    expectedNumberOfUsers = pm.globals.get(\"expected_number_of_users\");\r",
-							"\r",
+							"    console.log(\"expected number of users is:\")\r",
+							"    console.log(expectedNumberOfUsers)\r",
+							"    \r",
 							"    // check the length is equal\r",
 							"    pm.expect(response.length).to.eql(parseInt(expectedNumberOfUsers));\r",
 							"});\r",
 							"\r",
 							""
 						],
-						"type": "text/javascript",
-						"id": "9baade16-dead-4900-987e-cc50ae27275b"
+						"type": "text/javascript"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "401bf9df-255d-4956-bb85-e51fc304135a",
 						"exec": [
 							""
 						],
-						"type": "text/javascript",
-						"id": "401bf9df-255d-4956-bb85-e51fc304135a"
+						"type": "text/javascript"
 					}
 				}
 			],
