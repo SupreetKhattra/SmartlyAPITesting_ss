@@ -24,7 +24,7 @@
 							"    var response = pm.response.json();\r",
 							"   \r",
 							"    // `expected_number_of_users` is a global variable\r",
-							"    expectedNumberOfUsers = pm.globals.get(\"expected_number_of_users\");\r",
+							"    //expectedNumberOfUsers = pm.globals.get(\"expected_number_of_users\");\r",
 							"    // console.log(\"expected number of users is:\")\r",
 							"    // console.log(expectedNumberOfUsers)\r",
 							"\r",
