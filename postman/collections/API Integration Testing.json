@@ -24,12 +24,12 @@
 							"    var response = pm.response.json();\r",
 							"   \r",
 							"    // `expected_number_of_users` is a global variable\r",
-							"    //expectedNumberOfUsers = pm.globals.get(\"expected_number_of_users\");\r",
+							"    expectedNumberOfUsers = pm.environment.get(\"expectedNumberOfUsers\");\r",
 							"    // console.log(\"expected number of users is:\")\r",
 							"    // console.log(expectedNumberOfUsers)\r",
 							"\r",
 							"    // check the length is equal\r",
-							"    pm.expect(response.length).to.eql(10);\r",
+							"    pm.expect(response.length).to.eql(parseInt(expectedNumberOfUsers));\r",
 							"});\r",
 							"\r",
 							""
@@ -147,7 +147,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "76461506-3163-4059-9e5c-735141b1d395",
+				"id": "058fbf93-0b87-49e1-af8b-09fa223913af",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -157,7 +157,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "dd71f50b-3904-40a8-aedc-63f59417055f",
+				"id": "8df4dbb6-6a45-4ead-bf35-c43388435026",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -167,18 +167,18 @@
 	],
 	"variable": [
 		{
-			"id": "5ed1ad87-7d5c-4001-92af-f4846b404a6e",
+			"id": "5e3aee4a-aa51-4154-853d-eae24e930ce2",
 			"key": "token",
 			"value": ""
 		},
 		{
-			"id": "287f35d2-a654-457e-b707-51a78b52ce97",
+			"id": "b3f2de7f-ecc0-4228-a206-fdb49f53e7fc",
 			"key": "baseUrl",
 			"value": "https://postman-integration-testing.glitch.me/"
 		},
 		{
-			"id": "af34814d-04b0-4382-91da-14bb8f4dacf8",
-			"key": "expected_number_of_users",
+			"id": "e14c2ad1-a37b-4188-a24c-639b3f62ab57",
+			"key": "expectedNumberOfUsers",
 			"value": "10",
 			"type": "string"
 		}
