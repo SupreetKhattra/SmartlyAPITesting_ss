@@ -26,7 +26,7 @@
 							"    expectedNumberOfUsers = pm.globals.get(\"expected_number_of_users\");\r",
 							"\r",
 							"    // check the length is equal\r",
-							"    pm.expect(response.length).to.eql(11);\r",
+							"    pm.expect(response.length).to.eql(10);\r",
 							"});\r",
 							"\r",
 							""
