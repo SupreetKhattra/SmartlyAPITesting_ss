@@ -8,7 +8,7 @@
 	},
 	"item": [
 		{
-			"name": "TC1: Verify GET Users request 10",
+			"name": "TC1: Verify GET Users request 15",
 			"event": [
 				{
 					"listen": "test",
