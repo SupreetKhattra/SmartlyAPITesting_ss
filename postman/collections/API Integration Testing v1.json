@@ -22,14 +22,16 @@
 							"pm.test(\"The number of Users maches the expected number\", function () {\r",
 							"    // Parse the response body as JSON\r",
 							"    var response = pm.response.json();\r",
-							"   \r",
-							"    // `expected_number_of_users` is a global variable\r",
-							"    expectedNumberOfUsers = pm.environment.get(\"expectedNumberOfUsers\");\r",
-							"    // console.log(\"expected number of users is:\")\r",
-							"    // console.log(expectedNumberOfUsers)\r",
+							"    console.log(\"actual number of users is:\")\r",
+							"    console.log(response.length)\r",
+							"\r",
+							"    // `expectedNoOfUsers` is a local variable\r",
+							"    expectedNumberOfUsers = pm.variables.get(\"expectedNoOfUsers\");\r",
+							"    console.log(\"expected number of users is:\")\r",
+							"    console.log(expectedNumberOfUsers)\r",
 							"\r",
 							"    // check the length is equal\r",
-							"    pm.expect(response.length).to.eql(parseInt(expectedNumberOfUsers));\r",
+							"    pm.expect(response.length).to.eql(expectedNumberOfUsers);\r",
 							"});\r",
 							"\r",
 							""
@@ -42,7 +44,7 @@
 					"script": {
 						"id": "abd575ff-4c6c-4e4e-abde-0c7cedfedb7f",
 						"exec": [
-							""
+							"pm.variables.set(\"expectedNoOfUsers\", 10);"
 						],
 						"type": "text/javascript"
 					}
@@ -66,14 +68,6 @@
 					],
 					"path": [
 						"users"
-					],
-					"query": [
-						{
-							"key": "enu",
-							"value": "10",
-							"description": "expected number of users",
-							"disabled": true
-						}
 					]
 				}
 			},
@@ -154,30 +148,25 @@
 							"    pm.response.to.have.status(201);\r",
 							"});\r",
 							"\r",
-							"// Test 2: Verify that the posted data are showing up in the result\r",
+							"// Test 3: Verify that the posted data are showing up in the result\r",
 							"pm.test(\"Verify posted data is in the results\", function () {\r",
 							"    \r",
 							"    // Make sure the response is a JSON\r",
 							"    var response = pm.response.json();\r",
-							"    \r",
+							"\r",
 							"    // Exclude the \"id\" field from the request body for comparison\r",
 							"    delete response.id;\r",
-							"    \r",
-							"    //Get the data that was posted\r",
-							"    var requestBody = pm.environment.get(\"new_user_data\")\r",
 							"\r",
-							"    //Parse the data posted into into JSON\r",
-							"    const requestBodyJson = JSON.parse(requestBody);\r",
-							"\r",
-							"    console.log(\"global_variables original\")\r",
-							"    console.log(requestBody)\r",
-							"    console.log(\"global_variables JSON\")\r",
-							"    console.log(requestBodyJson)\r",
 							"    console.log(\"the response:\")\r",
 							"    console.log(response)\r",
+							"    \r",
+							"    //Get the data that was posted\r",
+							"    var requestBody = JSON.parse(pm.environment.get(\"new_user_data\"))\r",
+							"    console.log(\"the requestBody:\")\r",
+							"    console.log(requestBody)\r",
 							"\r",
 							"    // Check the request and response bodies match\r",
-							"    pm.expect(response).to.eql(requestBodyJson);\r",
+							"    pm.expect(response).to.eql(requestBody);\r",
 							"\r",
 							"});"
 						],
